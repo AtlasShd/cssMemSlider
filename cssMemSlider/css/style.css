@@ -197,8 +197,10 @@ main {
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 20px);
+  min-height: 516px;
   max-width: 100vw;
-  aspect-ratio: 1 / 1.17;
+  min-width: 280px;
+  aspect-ratio: 1 / 1.2;
   background: var(--matte-black);
   overflow: hidden;
   border: 4px solid var(--gold);
@@ -213,7 +215,7 @@ main {
   flex: 0 0 auto;
   display: flex;
   width: 400%;
-  height: 86%;
+  height: 84%;
 }
 
 #slider1:checked~.slider__slides .slider__slider-1 {
@@ -326,6 +328,7 @@ main {
 }
 
 .slider__text {
+  order: 1;
   flex: 1 1 70%;
   height: 100%;
   display: flex;
@@ -343,6 +346,7 @@ main {
 }
 
 .slider__navigation {
+  order: 2;
   flex: 1 1 30%;
   display: flex;
   justify-content: end;
@@ -411,12 +415,38 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .title {
-    font-size: 32px;
-    line-height: 40px;
-    max-width: 350px;
-    margin: 0 auto 30px;
+
+  .core,
+  .slider,
+  .footer {
+    font-size: 16px;
+    line-height: 28px;
   }
+
+  .slider__body {
+    aspect-ratio: 1 / 1.4;
+  }
+
+  .slider__slides {
+    height: 72%;
+  }
+
+  .slider__footer {
+    flex-wrap: wrap;
+  }
+
+  .slider__text {
+    order: 2;
+    flex: 1 1 100%;
+  }
+
+  .slider__navigation {
+    order: 1;
+    flex: 1 1 100%;
+    justify-content: center;
+    height: auto;
+  }
+
 
   .footer__year {
     padding-top: 20px;
