@@ -135,7 +135,7 @@ html {
   max-width: 1280px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 .title {
@@ -196,9 +196,9 @@ main {
 .slider__body {
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: calc(100vh - 20px);
   max-width: 100vw;
-  aspect-ratio: 1 / 1.11;
+  aspect-ratio: 1 / 1.17;
   background: var(--matte-black);
   overflow: hidden;
   border: 4px solid var(--gold);
@@ -212,7 +212,7 @@ main {
   flex: 0 0 auto;
   display: flex;
   width: 400%;
-  height: 90%;
+  height: 86%;
 }
 
 #slider1:checked~.slider__slides .slider__slider-1 {
@@ -231,43 +231,121 @@ main {
   margin-left: -75%;
 }
 
-#slider1:checked~.slider__navigation .slider__bar-1 span {
+#slider1:checked~.slider__footer .slider__bar-1 span {
   background: var(--matte-black);
   border: 2px solid var(--gold);
 }
 
-#slider2:checked~.slider__navigation .slider__bar-2 span {
+#slider2:checked~.slider__footer .slider__bar-2 span {
   background: var(--matte-black);
   border: 2px solid var(--gold);
 }
 
-#slider3:checked~.slider__navigation .slider__bar-3 span {
+#slider3:checked~.slider__footer .slider__bar-3 span {
   background: var(--matte-black);
   border: 2px solid var(--gold);
 }
 
-#slider4:checked~.slider__navigation .slider__bar-4 span {
+#slider4:checked~.slider__footer .slider__bar-4 span {
   background: var(--matte-black);
   border: 2px solid var(--gold);
 
+}
+
+#slider1:checked~.slider__footer .slider__paragraph-1 {
+  transform: translateX(0);
+  opacity: 1;
+  order: 1;
+}
+
+#slider1:checked~.slider__footer .slider__paragraph-2,
+#slider1:checked~.slider__footer .slider__paragraph-3,
+#slider1:checked~.slider__footer .slider__paragraph-4 {
+  transform: translateX(250%);
+}
+
+#slider2:checked~.slider__footer .slider__paragraph-2 {
+  transform: translateX(0);
+  opacity: 1;
+  order: 1;
+}
+
+#slider2:checked~.slider__footer .slider__paragraph-1 {
+  transform: translateX(-250%);
+}
+
+#slider2:checked~.slider__footer .slider__paragraph-3,
+#slider2:checked~.slider__footer .slider__paragraph-4 {
+  transform: translateX(250%);
+}
+
+#slider3:checked~.slider__footer .slider__paragraph-3 {
+  transform: translateX(0);
+  order: 1;
+  opacity: 1;
+}
+
+#slider3:checked~.slider__footer .slider__paragraph-1,
+#slider3:checked~.slider__footer .slider__paragraph-2 {
+  transform: translateX(-250%);
+}
+
+#slider3:checked~.slider__footer .slider__paragraph-4 {
+  transform: translateX(250%);
+}
+
+#slider4:checked~.slider__footer .slider__paragraph-4 {
+  transform: translateX(0);
+  order: 1;
+  opacity: 1;
+}
+
+#slider4:checked~.slider__footer .slider__paragraph-1,
+#slider4:checked~.slider__footer .slider__paragraph-2,
+#slider4:checked~.slider__footer .slider__paragraph-3 {
+  transform: translateX(-250%);
 }
 
 .slider__slide {
   height: 100%;
   width: 25%;
   aspect-ratio: 1;
-  transition: margin 0.5s ease-out 0s;
+  transition: margin 0.33s ease-out 0s;
 }
 
 .slider__slide img {
   width: 100%;
 }
 
+.slider__footer {
+  flex: 1 0 auto;
+  display: flex;
+  height: auto;
+  padding: 0 10px;
+}
+
+.slider__text {
+  flex: 1 1 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider__paragraph {
+  width: 100%;
+  transition: transform 0.33s ease-out 0s, opacity 0.33s linear 0s;
+  order: 2;
+  opacity: 0;
+}
 
 .slider__navigation {
-  flex: 1 0 auto;
-  height: auto;
+  flex: 1 1 30%;
   display: flex;
+  justify-content: end;
+  height: 100%;
 }
 
 .slider__bar {
@@ -276,6 +354,7 @@ main {
   align-items: center;
   height: 30px;
   width: 30px;
+  cursor: pointer;
 }
 
 .slider__bar span {
@@ -284,11 +363,12 @@ main {
   height: 50%;
   background: var(--gold);
   border-radius: 50%;
-  transition: background 0.25s ease-out 0s, border 0.1s ease-out 0s;
+  transition: background 0.33s ease-out 0s, border 0.33s ease-out 0s;
 }
 
 .slider__bar:hover span {
   background: var(--white);
+  border: 2px solid var(--white) !important;
 }
 
 /* slider */
@@ -347,9 +427,5 @@ footer {
 
   .footer__body {
     flex-direction: column;
-  }
-
-  .container {
-    padding: 10px;
   }
 }
