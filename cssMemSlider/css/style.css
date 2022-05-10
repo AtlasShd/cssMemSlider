@@ -104,7 +104,7 @@ h6 {
 
 :root {
   --bg-dark: #000;
-  --gold: #bdae82;
+  --gold: #9c8d5f;
   --white: #fff;
   --matte-black: #1c1c1c;
 }
@@ -201,7 +201,11 @@ main {
   aspect-ratio: 1 / 1.11;
   background: var(--matte-black);
   overflow: hidden;
-  border: 4px solid var(--white);
+  border: 4px solid var(--gold);
+}
+
+.slider__body input[name="slider"] {
+  display: none;
 }
 
 .slider__slides {
@@ -211,31 +215,48 @@ main {
   height: 90%;
 }
 
-.slider__slides input[name="slider"] {
-  display: none;
-}
-
-#slider1:checked~.slider__slider-1 {
+#slider1:checked~.slider__slides .slider__slider-1 {
   margin-left: 0;
 }
 
-#slider2:checked~.slider__slider-1 {
+#slider2:checked~.slider__slides .slider__slider-1 {
   margin-left: -25%;
 }
 
-#slider3:checked~.slider__slider-1 {
+#slider3:checked~.slider__slides .slider__slider-1 {
   margin-left: -50%;
 }
 
-#slider4:checked~.slider__slider-1 {
+#slider4:checked~.slider__slides .slider__slider-1 {
   margin-left: -75%;
+}
+
+#slider1:checked~.slider__navigation .slider__bar-1 span {
+  background: var(--matte-black);
+  border: 2px solid var(--gold);
+}
+
+#slider2:checked~.slider__navigation .slider__bar-2 span {
+  background: var(--matte-black);
+  border: 2px solid var(--gold);
+}
+
+#slider3:checked~.slider__navigation .slider__bar-3 span {
+  background: var(--matte-black);
+  border: 2px solid var(--gold);
+}
+
+#slider4:checked~.slider__navigation .slider__bar-4 span {
+  background: var(--matte-black);
+  border: 2px solid var(--gold);
+
 }
 
 .slider__slide {
   height: 100%;
   width: 25%;
   aspect-ratio: 1;
-  transition: all 0.5s ease-out 0s;
+  transition: margin 0.5s ease-out 0s;
 }
 
 .slider__slide img {
@@ -255,16 +276,20 @@ main {
   align-items: center;
   height: 30px;
   width: 30px;
-  background: var(--gold);
-  transition: background 0.5s ease-out 0s;
-  border: 1px solid #000;
 }
 
-.slider__bar:hover {
+.slider__bar span {
+  display: block;
+  width: 50%;
+  height: 50%;
+  background: var(--gold);
+  border-radius: 50%;
+  transition: background 0.25s ease-out 0s, border 0.1s ease-out 0s;
+}
+
+.slider__bar:hover span {
   background: var(--white);
 }
-
-
 
 /* slider */
 footer {
