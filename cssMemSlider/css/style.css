@@ -173,7 +173,7 @@ main {
 }
 
 .slider__body input[name="slider"] {
-  display: none;
+  height: 0;
 }
 
 .slider__slides {
@@ -348,7 +348,7 @@ footer {
   .core,
   .slider,
   .footer {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
   }
 
   .slider__body {
