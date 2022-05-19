@@ -305,6 +305,10 @@ main {
   border: 0.1rem solid var(--white) !important;
 }
 
+.slider__bar:active span {
+  background: red;
+}
+
 /* slider */
 footer {
   flex: 0 0 auto;
